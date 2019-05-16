@@ -28,7 +28,7 @@ public class Question {
     @NotBlank
     private String correctAnswer;
 
-    @ManyToMany(mappedBy = "questions", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "questions")
     private List<Test> tests = new ArrayList<>();
 
 

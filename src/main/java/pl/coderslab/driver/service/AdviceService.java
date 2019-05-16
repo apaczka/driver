@@ -21,8 +21,8 @@ public class AdviceService {
         return advices;
     }
 
-    public Optional<Advice> findById(Long id){
-        return adviceRepository.findById(id);
+    public Advice findAdviceById(Long id){
+        return adviceRepository.getOne(id);
     }
 
     public void removeAdvice(Long id){

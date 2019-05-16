@@ -16,11 +16,10 @@ public class Test {
     @NotBlank
     private String title;
 
-    @OneToOne
-    @JoinColumn(name = "advice_id", unique = true)
+    @ManyToOne
     private Advice advice;
 
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToMany
     private List<Question> questions = new ArrayList<>();
 
 
@@ -46,6 +45,14 @@ public class Test {
 
     public void setAdvice(Advice advice) {
         this.advice = advice;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override

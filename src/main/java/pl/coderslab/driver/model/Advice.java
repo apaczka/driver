@@ -23,18 +23,15 @@ public class Advice {
     @OneToMany(mappedBy = "advice", cascade={CascadeType.MERGE})
     private List <Test> tests = new ArrayList<>();
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany
     private List<Category> categories = new ArrayList<>();
 
-    @Transient
-    private Test test;
-
-      public Test getTest() {
-        return test;
+    public Long getId() {
+        return id;
     }
 
-    public void setTest(Test test) {
-        this.test = test;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
