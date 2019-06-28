@@ -16,8 +16,8 @@ public class Category {
     @NotBlank
     private String name;
 
-    @ManyToMany (mappedBy = "categories")
-    private List<Advice>advices = new ArrayList<>();
+//    @ManyToMany (mappedBy = "categories")
+//    private List<Advice>advices = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -35,20 +35,20 @@ public class Category {
         this.name = name;
     }
 
-    public List<Advice> getAdvices() {
-        return advices;
-    }
-
-    public void setAdvices(List<Advice> advices) {
-        this.advices = advices;
-    }
+//    public List<Advice> getAdvices() {
+//        return advices;
+//    }
+//
+//    public void setAdvices(List<Advice> advices) {
+//        this.advices = advices;
+//    }
 
     @Override
     public String toString() {
         return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", advices=" + advices +
+//                ", advices=" + advices +
                 '}';
     }
 }

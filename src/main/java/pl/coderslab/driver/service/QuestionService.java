@@ -3,6 +3,7 @@ package pl.coderslab.driver.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.coderslab.driver.model.Question;
+import pl.coderslab.driver.model.Test;
 import pl.coderslab.driver.repository.QuestionRepository;
 
 import javax.transaction.Transactional;
@@ -25,16 +26,12 @@ public class QuestionService {
         return questionRepository.findById(id);
     }
 
-    public Question findByTestAndById(Long testId, Long id){
-        return questionRepository.findByTestIdAndByAndId(testId, id);
+    public List<Question> showAllQuestionsInTest (List <Test> tests){
+        return questionRepository.findAllByTests(tests);
+
     }
 
-    public List<Question> findAllByTestId(Long testId){
-        List<Question> list = questionRepository.findAllByTestId(testId);
-        return list;
-    }
-
-    public void removeQuestion(Long id){
+      public void removeQuestion(Long id){
         questionRepository.deleteById(id);
     }
 

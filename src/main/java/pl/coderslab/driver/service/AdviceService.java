@@ -22,6 +22,7 @@ public class AdviceService {
     }
 
     public Advice findAdviceById(Long id){
+
         return adviceRepository.getOne(id);
     }
 

@@ -27,14 +27,14 @@ public class AdviceController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Advice> getAllAdvices(){
-        List<Advice> advices= new ArrayList<>();
-        advices = adviceService.getAllAdvices();
+        List<Advice> advices = adviceService.getAllAdvices();
         return advices;
 
     }
 
     @GetMapping(path = "/{id}", produces= MediaType.APPLICATION_JSON_VALUE)
     public Advice showAdvice(@PathVariable Long id){
+
         return adviceService.findAdviceById(id);
     }
 
@@ -53,9 +53,8 @@ public class AdviceController {
         }
 
         adviceService.saveAdvice(advice);
-                adviceService.saveAdvice(advice);
 
-    }
+                   }
 
     @RequestMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.PUT)
     public void updateAdvice(@RequestBody Advice advice,@PathVariable Long id){

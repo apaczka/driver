@@ -37,20 +37,21 @@ public class CategoryController {
     public void deleteCategory(@PathVariable Long id){
         categoryService.removeCategory(id);
     }
+
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public void saveCategory(@RequestBody Category category){
-        for (Advice advice : category.getAdvices()) {
-            adviceService.saveAdvice(advice);
-
-        }
+//        for (Advice advice : category.getAdvices()) {
+//            adviceService.saveAdvice(advice);
+//
+//        }
         categoryService.saveCategory(category);
 
     }
     @RequestMapping(path = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void updateCategory(@PathVariable Long id, @RequestBody Category category){
         Category updatedCategory = categoryService.findCategoryById(id);
-        updatedCategory.setAdvices(category.getAdvices());
+//        updatedCategory.setAdvices(category.getAdvices());
         updatedCategory.setName(category.getName());
         categoryService.saveCategory(updatedCategory);
     }
